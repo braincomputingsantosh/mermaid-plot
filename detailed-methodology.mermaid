@@ -1,0 +1,33 @@
+flowchart TB
+    subgraph ProjectSetup["Project Foundation"]
+        A[Community-based Research Project] --> B[IRB Approval at RTI International]
+        B --> C[NIH Funding Secured]
+    end
+
+    subgraph ParticipantScope["Study Population"]
+        D[Eight Grade Students] --> E[Two-year Follow-up Study]
+        E --> F[Salinas Agricultural Community]
+    end
+
+    subgraph ResearchFocus["Research Areas"]
+        G[Social Determinants] --> H[Family Relationships]
+        G --> I[Education Access]
+        G --> J[Healthcare Access]
+        G --> K[Neighborhood Environment]
+        G --> L[Community Context]
+    end
+
+    subgraph InstagramStrategy["Instagram Implementation"]
+        M[Social Media Strategy] --> N[Content Development]
+        N --> O[Community Engagement]
+        O --> P[Participant Retention Tracking]
+    end
+
+    ProjectSetup --> ParticipantScope
+    ParticipantScope --> ResearchFocus
+    ResearchFocus --> InstagramStrategy
+
+    style ProjectSetup fill:#ffffff,stroke:#2196F3
+    style ParticipantScope fill:#ffffff,stroke:#2196F3
+    style ResearchFocus fill:#ffffff,stroke:#2196F3
+    style InstagramStrategy fill:#ffffff,stroke:#2196F3
