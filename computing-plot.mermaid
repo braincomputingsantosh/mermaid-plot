@@ -1,0 +1,39 @@
+%%{init: {'theme': 'base', 'themeVariables': { 'fontFamily': 'Calibri', 'backgroundColor': '#1B2B44', 'primaryColor': '#1B2B44', 'primaryTextColor': '#ffffff', 'primaryBorderColor': '#ffffff', 'lineColor': '#000000', 'mainBkg': '#1B2B44', 'nodeBorder': '#ffffff', 'clusterBkg': '#1B2B44', 'titleColor': '#ffffff', 'edgeLabelBackground': '#1B2B44'}}}%%
+
+flowchart TB
+    subgraph DATA[Dataset Collection]
+        D1[940,439 Posts]
+        D2[115,044 Users]
+        D3[2-Year Span]
+    end
+
+    subgraph CRITERIA[User Selection]
+        C1[Public Profiles]
+        C2[Min 10 Video Posts]
+    end
+
+    subgraph PREPROCESS[Data Preprocessing]
+        P1[Outlier Removal]
+        P2[Feature Engineering]
+        P3[Feature Selection]
+    end
+
+    subgraph MODELS[Model Implementation]
+        M1[Ridge Regression]
+        M2[Random Forest]
+        subgraph MR[Multiple Regression]
+            K1[K-Means Clustering]
+            R1[Subset Models]
+        end
+    end
+
+    DATA --> CRITERIA
+    CRITERIA --> PREPROCESS
+    PREPROCESS --> MODELS
+    
+    P2 --> |Log Scale Transform| MODELS
+    P3 --> |Feature Subset| MODELS
+    K1 --> R1
+
+    classDef default fill:#1B2B44,stroke:#ffffff,color:#ffffff
+    class DATA,CRITERIA,PREPROCESS,MODELS,MR default
