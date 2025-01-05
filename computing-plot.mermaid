@@ -5,17 +5,36 @@ flowchart TB
         D1[940,439 Posts]
         D2[115,044 Users]
         D3[2-Year Span]
+        
+        D1 -.-> D2
+        D2 -.-> D3
+        
+        style D1 fill:#1B2B44,stroke:#ffffff,color:#ffffff
+        style D2 fill:#1B2B44,stroke:#ffffff,color:#ffffff
+        style D3 fill:#1B2B44,stroke:#ffffff,color:#ffffff
     end
 
     subgraph CRITERIA[User Selection]
         C1[Public Profiles]
         C2[Min 10 Video Posts]
+        
+        C1 -.-> C2
+        
+        style C1 fill:#1B2B44,stroke:#ffffff,color:#ffffff
+        style C2 fill:#1B2B44,stroke:#ffffff,color:#ffffff
     end
 
     subgraph PREPROCESS[Data Preprocessing]
         P1[Outlier Removal]
         P2[Feature Engineering]
         P3[Feature Selection]
+        
+        P1 -.-> P2
+        P2 -.-> P3
+        
+        style P1 fill:#1B2B44,stroke:#ffffff,color:#ffffff
+        style P2 fill:#1B2B44,stroke:#ffffff,color:#ffffff
+        style P3 fill:#1B2B44,stroke:#ffffff,color:#ffffff
     end
 
     subgraph MODELS[Model Implementation]
@@ -24,16 +43,25 @@ flowchart TB
         subgraph MR[Multiple Regression]
             K1[K-Means Clustering]
             R1[Subset Models]
+            K1 -.-> R1
+            
+            style K1 fill:#1B2B44,stroke:#ffffff,color:#ffffff
+            style R1 fill:#1B2B44,stroke:#ffffff,color:#ffffff
         end
+        
+        M1 -.-> M2
+        M2 -.-> MR
+        
+        style M1 fill:#1B2B44,stroke:#ffffff,color:#ffffff
+        style M2 fill:#1B2B44,stroke:#ffffff,color:#ffffff
     end
 
     DATA --> CRITERIA
     CRITERIA --> PREPROCESS
     PREPROCESS --> MODELS
-    
-    P2 --> |Log Scale Transform| MODELS
-    P3 --> |Feature Subset| MODELS
-    K1 --> R1
 
     classDef default fill:#1B2B44,stroke:#ffffff,color:#ffffff
     class DATA,CRITERIA,PREPROCESS,MODELS,MR default
+
+    linkStyle default stroke:#000000,stroke-width:2
+    linkStyle 0,1,2,3,4,5,6,7,8 stroke:#ffffff,stroke-width:2
