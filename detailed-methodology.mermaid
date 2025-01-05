@@ -1,33 +1,39 @@
+%%{init: {'theme': 'base', 'themeVariables': { 'fontFamily': 'Calibri', 'backgroundColor': '#1B2B44', 'primaryColor': '#1B2B44', 'primaryTextColor': '#ffffff', 'primaryBorderColor': '#ffffff', 'lineColor': '#ffffff', 'mainBkg': '#1B2B44', 'nodeBorder': '#ffffff', 'clusterBkg': '#1B2B44', 'titleColor': '#ffffff', 'edgeLabelBackground': '#1B2B44'}}}%%
+
 flowchart TB
-    subgraph ProjectSetup["Project Foundation"]
-        A[Community-based Research Project] --> B[IRB Approval at RTI International]
-        B --> C[NIH Funding Secured]
+    subgraph PS[Project Setup]
+        A(Community Research Project)
+        B(IRB Approval)
+        C(NIH Funding)
+        A --> B --> C
     end
 
-    subgraph ParticipantScope["Study Population"]
-        D[Eight Grade Students] --> E[Two-year Follow-up Study]
-        E --> F[Salinas Agricultural Community]
+    subgraph SP[Study Population]
+        D(Eight Grade Students)
+        E(Two-year Follow-up)
+        F(Agricultural Community)
+        D --> E --> F
     end
 
-    subgraph ResearchFocus["Research Areas"]
-        G[Social Determinants] --> H[Family Relationships]
-        G --> I[Education Access]
-        G --> J[Healthcare Access]
-        G --> K[Neighborhood Environment]
-        G --> L[Community Context]
+    subgraph RF[Research Focus]
+        G(Social Determinants)
+        H(Family Relations)
+        I(Education)
+        J(Healthcare)
+        K(Environment)
+        G --> H & I & J & K
     end
 
-    subgraph InstagramStrategy["Instagram Implementation"]
-        M[Social Media Strategy] --> N[Content Development]
-        N --> O[Community Engagement]
-        O --> P[Participant Retention Tracking]
+    subgraph IS[Instagram Strategy]
+        L(Social Media Plan)
+        M(Content Creation)
+        N(Engagement)
+        O(Retention Tracking)
+        L --> M --> N --> O
     end
 
-    ProjectSetup --> ParticipantScope
-    ParticipantScope --> ResearchFocus
-    ResearchFocus --> InstagramStrategy
+    PS --> SP --> RF --> IS
 
-    style ProjectSetup fill:#ffffff,stroke:#2196F3
-    style ParticipantScope fill:#ffffff,stroke:#2196F3
-    style ResearchFocus fill:#ffffff,stroke:#2196F3
-    style InstagramStrategy fill:#ffffff,stroke:#2196F3
+    classDef default fill:#1B2B44,stroke:#ffffff,color:#ffffff
+    classDef node fill:#1B2B44,stroke:#ffffff,color:#ffffff
+    class PS,SP,RF,IS node
